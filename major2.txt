@@ -1,0 +1,91 @@
+#%RAML 1.0
+title: New API
+types:
+  milestone1:
+    properties:
+      id:
+        description: Shows Id
+        example: 2482
+        type: number
+        format: int
+      name:
+        description: Shows Name
+        example: Kartik Kocchar
+        type: string
+      email:
+        description: Email
+        example: kartik_kocchar@rutherford.io
+        type: string
+      gender:
+        description: gender display
+        example: Female
+        type: string
+      status:
+        example: inactive
+        type: string
+  milestone2:
+    properties:
+      UserDetails:
+        items:
+          properties:
+            postid:
+              description: postid
+              example: 2003
+              type: number
+              format: int
+            id:
+              description: personid
+              example: 1978
+              type: number
+              format: int
+            name:
+              description: Name of the person
+              example: Bhaaswar Pothuvaal II
+              type: string
+  milestone3:
+    properties:
+      Name:
+        description: Name
+        example: Gorakhanatha Chaturvedi
+        type: string
+      Status:
+        description: Status of the person
+        example: active
+        type: string
+      Gender:
+        description: gender of the person
+        example: Female
+        type: string
+annotationTypes:
+  NewGroup:
+    type: any
+/milestone1:
+  get:
+    responses:
+      "200":
+        body:
+          application/json:
+            type: milestone1
+/milestone2:
+  post:
+    queryParameters:
+      REQUEST:
+        type: milestone2
+    body:
+      application/json:
+        type: milestone2
+    responses:
+      "200":
+        body:
+          application/json:
+            type: milestone2
+/milestone3:
+  get:
+    responses:
+      "200":
+        body:
+          application/json:
+            type: milestone3
+(NewGroup):
+  name: Group
+  description: Group annotation
